@@ -176,16 +176,19 @@ if __name__ =='__main__':
 
         ##Backtesting
         st.write("""***""")
+
+
         if ticker:
             @st.cache
             def plot_the_price(symbol):
                 target = plot_price_1y_class(symbol)
-                target.get_data_1y()
-                figure = target.plot_candle_1y()
+                target.PlotPrice1y()
+                st.pyplot()
+                #figure = target.plot_candle_1y()
 
 
             plot_the_price(ticker)
-            st.pyplot()
+            #st.pyplot()
 
 
         #This function is quite good, however, when plotting it not sufficient'''
@@ -200,7 +203,7 @@ if __name__ =='__main__':
             #                            start_date='2021-01-01',
             #                            end_date=end,
             #                            show_vol=True)
-            #plot_the_price(ticker)
+            # plot_the_price(ticker)
 
 
 

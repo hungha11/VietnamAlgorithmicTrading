@@ -4,6 +4,7 @@
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/VietnamAlgorithmicTrading" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/streamlit/vnquant" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vietnam_algorithmic_trading" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vnquant" vcs="Git" />
   </component>
