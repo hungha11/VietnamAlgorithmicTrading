@@ -183,12 +183,13 @@ if __name__ =='__main__':
             def plot_the_price(symbol):
                 target = plot_price_1y_class(symbol)
                 target.PlotPrice1y()
-                st.pyplot()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+                #st.pyplot()
                 #figure = target.plot_candle_1y()
 
 
             plot_the_price(ticker)
-            #st.pyplot()
+            st.pyplot()
 
 
         #This function is quite good, however, when plotting it not sufficient'''
