@@ -177,30 +177,30 @@ if __name__ =='__main__':
         ##Backtesting
         st.write("""***""")
         if ticker:
-            #@st.cache
-            # def plot_the_price(x):
-            #     symbol = plot_price_1y_class(x)
-            #     symbol.get_data_1y()
-            #     figure = symbol.plot_candle_1y()
-            #
-            #
-            # plot_the_price(ticker)
-            # st.pyplot()
+            @st.cache
+            def plot_the_price(symbol):
+                target = plot_price_1y_class(symbol)
+                target.get_data_1y()
+                figure = target.plot_candle_1y()
+
+
+            plot_the_price(ticker)
+            st.pyplot()
 
 
         #This function is quite good, however, when plotting it not sufficient'''
-            @st.cache
-            def plot_the_price(ticker):
-
-                now = datetime.now()
-                end = now.strftime("%Y-%m-%d")
-                Plot._vnquant_candle_stick(data=ticker,
-                                       title=f'{ticker} stock price data and volume from 2021-01-01 to now',
-                                       xlab='Date', ylab='Price',
-                                       start_date='2021-01-01',
-                                       end_date=end,
-                                       show_vol=True)
-            plot_the_price(ticker)
+            # @st.cache
+            # def plot_the_price(ticker):
+            #
+            #     now = datetime.now()
+            #     end = now.strftime("%Y-%m-%d")
+            #     Plot._vnquant_candle_stick(data=ticker,
+            #                            title=f'{ticker} stock price data and volume from 2021-01-01 to now',
+            #                            xlab='Date', ylab='Price',
+            #                            start_date='2021-01-01',
+            #                            end_date=end,
+            #                            show_vol=True)
+            #plot_the_price(ticker)
 
 
 

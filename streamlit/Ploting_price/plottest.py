@@ -26,7 +26,7 @@ class plot_price_1y_class(object):
         self.dfplot.index.name = 'Date'
         # del dfplot['Symbols']
         self.dfplot.shape
-        csv = self.dfplot.to_csv('Price 1 year', index=True)
+        csv = self.dfplot.to_csv('Price 1 year for Ploting', index=True)
         return self.dfplot
 
 
@@ -48,14 +48,13 @@ class plot_price_1y_class(object):
 
         #Plot the candle price chart of the stock
         self.daily = df.apply(pd.to_numeric, errors='coerce')
-        #fig, axes = mpf.plot(daily, type='candle',style = 'charles' ,volume = True, mav = mav_tuple, title = title , figsize = (10,8))
-        # Configure chart legend and title
+
 
         #mav: 22 days average
-        # fig, axes = mpf.plot(self.daily, type='candle',style = 'charles' ,volume = True, mav = 22, returnfig=True)
-        # axes[0].set_title(title)
-        #
-        # plt.show()
+        fig, axes = mpf.plot(self.daily, type='candle',style = 'charles' ,volume = True, mav = 22, returnfig=True)
+        axes[0].set_title(title)
+
+        plt.show()
         return self.daily
 
 

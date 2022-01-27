@@ -32,7 +32,7 @@ class plot_price_1y_class(object):
 
     def plot_candle_1y(self):
         #Prepare the data
-        data = pd.read_csv('/Users/haquochung/OneDrive/OneDrive - RMIT University/Home/PyCharm/VietnamAlgorithmicTrading/streamlit/Ploting_price/Price 1 year')
+        data = pd.read_csv('/Users/haquochung/OneDrive/OneDrive - RMIT University/Home/PyCharm/VietnamAlgorithmicTrading/streamlit/Ploting_price/Price 1 year for Ploting')
         SYMBOL = data.loc[0][1]
         data= data.drop(data.index[0])
         data= data.drop(data.index[0])
