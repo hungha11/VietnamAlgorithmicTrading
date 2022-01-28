@@ -1,4 +1,3 @@
-import streamlit as st
 from PIL import Image
 import pandas as pd
 import numpy as np
@@ -11,7 +10,8 @@ from Forecast.SMA_backtesting import SMAVectorBacktester
 from Forecast.FUNDAMENTAL_calculation import SimpleForcast
 import streamlit as st
 from Ploting_price.PlotPrice1y import plot_price_1y_class
-
+from Ploting_price.PlotPrice1m import plot_price_1m_class
+from Ploting_price.plotIndicators import plot_the_indicator
 
 
 
@@ -179,8 +179,8 @@ if __name__ =='__main__':
 
 
         if ticker:
-            @st.cache
-            def plot_the_price(symbol):
+
+            def plot_the_price_1y(symbol):
                 target = plot_price_1y_class(symbol)
                 target.PlotPrice1y()
                 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -188,8 +188,29 @@ if __name__ =='__main__':
                 #figure = target.plot_candle_1y()
 
 
-            plot_the_price(ticker)
+            plot_the_price_1y(ticker)
             st.pyplot()
+
+
+
+            def plot_the_price_1m(symbol):
+                target = plot_price_1m_class(symbol)
+                target.PlotPrice1m()
+                st.set_option('deprecation.showPyplotGlobalUse', False)
+                #st.pyplot()
+                #figure = target.plot_candle_1y()
+
+
+            plot_the_price_1m(ticker)
+            st.pyplot()
+
+            def plot_indicator(symbol):
+                target = plot_the_indicator(symbol)
+                target.get_data_for_indicators()
+                target.plot_momentum()
+            plot_indicator(ticker)
+            st.pyplot()
+
 
 
         #This function is quite good, however, when plotting it not sufficient'''
@@ -256,7 +277,7 @@ if __name__ =='__main__':
         #sidebar
         st.sidebar.write('Some thing about my self: \n'
                          '* I study at RMIT Vietnam university with the major in Finance.\n'
-                         '* My biggest teacher of this field is Youtube : ), especially freeCodeCamp channel!. Everyone should take a look because it do helo you guys!\n'
+                         '* My biggest teacher of this field is Youtube : ), especially freeCodeCamp channel!. Everyone should take a look because it do help you guys!\n'
                          '* There are lots of bug in this project and I am really happy if you guys can find out then contact me!')
         st.sidebar.write(("""***"""))
 
